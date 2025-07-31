@@ -1,0 +1,314 @@
+/*
+ * Estilos globais para a aplicação de controle financeiro.
+ * A paleta de cores agora utiliza variáveis CSS para permitir
+ * alternância entre tema claro e escuro. O uso de variáveis
+ * também facilita ajustes de contraste e personalização no futuro.
+ */
+
+/* Definições de cores padrão (tema claro) */
+:root {
+  --color-bg: #F8FAFC;
+  --color-text: #0F172A;
+  --color-header-bg: #FFFFFF;
+  --color-primary: #3B82F6;
+  --color-primary-hover: #2563EB;
+  --color-secondary-bg: #E5E7EB;
+  --color-secondary-hover: #D1D5DB;
+  --color-card-bg: #FFFFFF;
+  --color-card-shadow: rgba(0, 0, 0, 0.08);
+  --color-red: #DC2626;
+  --color-green: #059669;
+  --color-muted: #6B7280;
+}
+
+/* Tema escuro: sobrescreve as variáveis quando a classe `.dark` estiver no elemento html */
+.dark {
+  --color-bg: #1F2937;
+  --color-text: #F8FAFC;
+  --color-header-bg: #111827;
+  --color-primary: #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-secondary-bg: #374151;
+  --color-secondary-hover: #4B5563;
+  --color-card-bg: #1E293B;
+  --color-card-shadow: rgba(255, 255, 255, 0.05);
+  --color-red: #F87171;
+  --color-green: #34D399;
+  --color-muted: #9CA3AF;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  /* O texto se adapta ao tema por meio de variáveis */
+  color: var(--color-text);
+  height: 100%;
+}
+
+/* Layout geral */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-header-bg);
+  /* sombra adapta-se ao tema através das variáveis */
+  box-shadow: 0 2px 4px var(--color-card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: var(--color-secondary-bg);
+}
+
+.nav-link.active {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.app-container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* Componentes reutilizáveis */
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px var(--color-card-shadow);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--color-secondary-hover);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+}
+
+button.primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button.primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+button.secondary {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button.secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 0.6rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #E5E7EB;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: var(--color-secondary-bg);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+table tbody tr:hover {
+  background-color: var(--color-secondary-bg);
+}
+
+.flex-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .nav-menu {
+    flex-wrap: wrap;
+  }
+  .nav-link {
+    flex: 1 1 calc(50% - 0.5rem);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  .app-container {
+    padding: 1rem;
+  }
+}
+
+/* Styling for charts */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Em telas pequenas, as tabelas podem transbordar horizontalmente. Transformamos em blocos
+   roláveis e impedimos a quebra de palavras para melhor usabilidade no mobile. */
+@media (max-width: 640px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Estilos para o contêiner de notificações (toasts) e para cada toast individual. */
+.toast-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  background-color: var(--color-header-bg);
+  color: var(--color-text);
+  border-left: 4px solid var(--color-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px var(--color-card-shadow);
+  min-width: 200px;
+  max-width: 300px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  pointer-events: auto;
+  font-size: 0.9rem;
+}
+
+.toast.error {
+  border-left-color: var(--color-red);
+}
+
+.toast.success {
+  border-left-color: var(--color-green);
+}
+
+/* Avatar and member card styles */
+.member-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+}
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #93C5FD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-actions button {
+  margin-left: 0.5rem;
+}

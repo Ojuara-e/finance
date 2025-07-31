@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle Financeiro Familiar</title>
+  <!-- Use a simple, light‑weight font for a modern look -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Controle Financeiro</h1>
+    <nav class="nav-menu">
+      <!-- Added aria-labels for better accessibility -->
+      <button id="nav-dashboard" class="nav-link active" aria-label="Abrir dashboard">Inicial</button>
+      <button id="nav-transactions" class="nav-link" aria-label="Abrir lista de transações">Transações</button>
+      <button id="nav-add" class="nav-link" aria-label="Adicionar nova transação">Adicionar</button>
+      <!-- Nova seção para agenda de contas a pagar/receber -->
+      <button id="nav-agenda" class="nav-link" aria-label="Agenda de contas a pagar e a receber">Agenda</button>
+      <!-- Seção para despesas fixas com rateio proporcional -->
+      <button id="nav-fixed" class="nav-link" aria-label="Despesas fixas rateadas">Despesas Fixas</button>
+      <button id="nav-profile" class="nav-link" aria-label="Gerenciar membros">Perfil</button>
+      <!-- Botão de logout, exibido apenas quando o usuário estiver autenticado -->
+      <button id="nav-logout" class="nav-link" aria-label="Sair do aplicativo" style="display:none;">Sair</button>
+    </nav>
+  </header>
+  <main id="app" class="app-container">
+    <!-- Pages will be injected here by app.js -->
+  </main>
+  <footer class="app-footer">
+    <small>Aplicação desenvolvida por Ojuara (Elias Araújo) - Todos os Direitos reservados® - Jaraguá do Sul/SC 2025.</small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
